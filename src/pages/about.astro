@@ -54,18 +54,22 @@ import Hero from "../components/Hero.astro";
       <section>
         <h2 class="section-title">Education</h2>
         <div class="content">
-          <p>MSc Advanced Computer Science</p>
-        </div>
-        <div class="content">
-          <p>BSc Computer Science and Japanese Studies</p>
+          <span class="education">
+            <p>MSc Advanced Computer Science</p>
+            <p>Dec 2020</p>
+          </span>
+          <span class="education">
+            <p>BSc Computer Science and Japanese Studies</p>
+            <p>Jun 2019</p>
+          </span>
         </div>
       </section>
       <section>
         <h2 class="section-title">Skills</h2>
         <div class="content">
           <p>
-            Python, JavaScript, TypeScript, HTML, CSS, React, Vue, Cypress,
-            Node.js, Express, Bash, Linux
+            Python, JavaScript, TypeScript, HTML, CSS, React, Vue, Cypress, Go,
+            Node.js, Bash, Linux
           </p>
         </div>
       </section>
@@ -87,6 +91,11 @@ import Hero from "../components/Hero.astro";
     display: flex;
     flex-direction: column;
     gap: 3.5rem;
+  }
+
+  .education {
+    display: flex;
+    justify-content: space-between;
   }
 
   img {
