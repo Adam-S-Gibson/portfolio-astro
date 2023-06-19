@@ -1,6 +1,6 @@
 ---
 title: Text-Based Blackjack Game
-publishDate: 2018-03-02 00:00:00
+publishDate: 2020-10-02 00:00:00
 img: /assets/blackjack.png
 img_alt: Image of blackjack
 github: https://github.com/Adam-S-Gibson/blackjack

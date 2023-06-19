@@ -1,6 +1,6 @@
 ---
 title: Pokédex
-publishDate: 2020-03-04 00:00:00
+publishDate: 2021-03-02 00:00:00
 link: https://adam-s-gibson.github.io/pokemon-stat-dex/
 img: /assets/pokedex.png
 img_alt: A picture of a Bulbasaur with its stats and typing next to it
