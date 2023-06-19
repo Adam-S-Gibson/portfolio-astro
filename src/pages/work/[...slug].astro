@@ -63,6 +63,14 @@ const { Content } = await entry.render();
                 </CallToAction>
               )
             }
+            {
+              entry.data.github && (
+                <CallToAction href={entry.data.github as string}>
+                  Checkout the Code
+                  <Icon icon="link" size="1.2em" />
+                </CallToAction>
+              )
+            }
           </div>
         </div>
       </main>

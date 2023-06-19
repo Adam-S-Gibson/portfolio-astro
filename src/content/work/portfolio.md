@@ -1,10 +1,10 @@
 ---
 title: Portfolio
-publishDate: 2020-03-02 00:00:00
+publishDate: 2021-03-02 00:00:00
 img: /assets/portfolio.png
 img_alt: A screenshot of the main page of this portfolio website
 description: |
-  This very portfolio that you're looking at!
+  This very same portfolio that you're currently looking at!
 tags:
   - Astro
   - TypeScript
