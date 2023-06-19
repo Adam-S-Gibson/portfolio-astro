@@ -1,14 +1,15 @@
 ---
 title: Cookbook
-publishDate: 2019-10-02 00:00:00
+publishDate: 2022-10-02 00:00:00
 img: /assets/recipe-book.png
 img_alt: White background with A recipe for an apple pie on it
+github: https://github.com/Adam-S-Gibson/Recipe-App
 description: |
   Make yourself the next Gordon Ramsay with this cookbook app!
 tags:
   - React
   - Postgres
-  - Express
+  - Docker
 ---
 
 Developing a cookbook app was an exciting journey. Starting with gathering requirements, I analyzed them and created a plan for the development process.

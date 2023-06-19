@@ -8,7 +8,7 @@ description: |
 tags:
   - Vue
   - AWS
-  - Leaflet
+  - Python
 ---
 
 I am proud to showcase my work on the Mission Control app for my client. This cutting-edge application was developed using Vue.js and AWS, enabling users to send locations on a map to one of their vehicles and have them move autonomously to that point in the real world.

@@ -10,6 +10,7 @@ export const collections = {
       link: z.string().url().optional(),
       img: z.string(),
       img_alt: z.string().optional(),
+      github: z.string().url().optional(),
     }),
   }),
 };
