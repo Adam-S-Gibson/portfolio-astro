@@ -1,6 +1,6 @@
 # Portfolio
 
-This is the source code to my portfolio website, feel free to look around!
+This is the source code to my portfolio website ([Link here](https://adam-gibson.netlify.app/)), feel free to look around!
 
 ## How to run and build the app
 
