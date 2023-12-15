@@ -1,12 +1,25 @@
-# 🧞 Commands
+# Portfolio
 
-All commands are run from the root of the project, from a terminal:
+This is the source code to my portfolio website, feel free to look around!
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `npm install`          | Installs dependencies                            |
-| `npm run dev`          | Starts local dev server at `localhost:3000`      |
-| `npm run build`        | Build your production site to `./dist/`          |
-| `npm run preview`      | Preview your build locally, before deploying     |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro --help` | Get help using the Astro CLI                     |
+## How to run and build the app
+
+Open a terminal and run the following commands in the root directory to spin up an instance of the portfolio
+
+```bash
+npm install # installs dependencies
+npm run dev # Starts a local dev server at localhost:3000
+```
+
+### How to build
+
+```bash
+npm run build # Builds the production site to ./dist/
+```
+
+### Tips for development
+
+```bash
+npx astro [add, check, etc...] # Run add stuff like react components and functionality 
+npx astro --help # For a full list of functionality
+```
