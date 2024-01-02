@@ -1,6 +1,6 @@
 ---
 title: Pokédex
-publishDate: 2021-03-02 00:00:00
+publishDate: 2022-03-02 00:00:00
 link: https://adam-s-gibson.github.io/pokemon-stat-dex/
 img: /assets/pokedex.png
 img_alt: A picture of a Bulbasaur with its stats and typing next to it
@@ -9,14 +9,21 @@ description: |
   A place to find information on your favourite pokémon
 tags:
   - React
-  - MaterialUI (MUI)
-  - API
+  - Shadcn/UI
+  - GraphQL
 ---
 
-Developing a Pokedex app was an exciting journey. To begin building the front-end of the app, I used MUI, a popular UI framework for React, to create a clean and visually appealing user interface. MUI provided me with pre-built components and styling guidelines, allowing me to quickly build the app's layout and features.
+Developing a comprehensive and interactive Pokémon application was a challenging and rewarding endeavor. The journey began with the decision to utilize a robust and modern tech stack to ensure a seamless and engaging user experience.
 
-For the app's functionality, I integrated the PokeAPI, a RESTful API that provides comprehensive data about the Pokemon universe. With the help of the PokeAPI, I was able to display detailed information about each Pokemon, including its name, types, and stats.
+The front-end of the application was crafted using React, a popular JavaScript library known for its efficiency and flexibility in building dynamic user interfaces. To further enhance the visual appeal and usability, Tailwind CSS was employed. This utility-first CSS framework enabled rapid styling and customization of the application, allowing for a unique and responsive design that adapts to different screen sizes and devices.
 
-To enhance the user experience, I added features such as search and filtering, allowing users to easily find Pokemon by name.
+Central to the app's functionality was the integration with the PokeAPI, a versatile GraphQL API offering extensive data on the Pokémon universe. This integration was key in fetching and displaying intricate details about each Pokémon, including their names, types, abilities, and statistical data. The use of GraphQL allowed for efficient data retrieval, minimizing bandwidth usage while providing the exact data needed for each query.
 
-By using MUI and integrating with the PokeAPI, I built a powerful and visually appealing app that provides comprehensive data about the Pokemon universe. I think developing this app was a powerful learning experience for me as a developer and a prime opportunity for growth.
+To improve the user experience and make the application more interactive, I implemented features like a dynamic search bar and filtering capabilities. These features empowered users to easily search and filter Pokémon based on various criteria, such as name, type, or abilities, providing a more personalized and engaging experience.
+
+Additionally, the application architecture was thoughtfully designed to ensure scalability and maintainability. The use of TypeScript added an extra layer of reliability with its strong typing system, catching errors early in the development process. The project was organized into modular components and utility functions, promoting reusability and keeping the codebase clean and manageable.
+
+Throughout the development process, attention was paid to best coding practices, including comprehensive error handling, consistent code formatting, and thoughtful naming conventions. This not only enhanced the code quality but also ensured that the application was robust and user-friendly.
+
+Developing this Pokémon application was a substantial learning experience, offering numerous opportunities for growth in modern web development technologies and practices. The project stands as a testament to the power of combining a well-thought-out design with efficient data handling and a user-centric approach.
+
