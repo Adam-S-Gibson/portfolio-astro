@@ -8,7 +8,9 @@ description: |
   This very same portfolio that you're currently looking at!
 tags:
   - Astro
-  - TypeScript
+  - HTML
+  - CSS
+  - JavaScript
 ---
 
 That's right, I am including this website on itself!
