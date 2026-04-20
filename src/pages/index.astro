@@ -1,7 +1,9 @@
 ---
 import { getCollection } from "astro:content";
+import { Picture } from "astro:assets";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
+import portrait from "../assets/portrait.avif";
 
 import CallToAction from "../components/CallToAction.astro";
 import Grid from "../components/Grid.astro";
@@ -28,17 +30,23 @@ const projects = (await getCollection("work"))
         >
           <div class="roles">
             <span style="font-style: italic; font-size:x-large;"
-              >#Developer #Engineer #Problem Solver</span
+              >#Developer #Engineer #Problem_solver</span
             >
           </div>
         </Hero>
 
-        <img
+        <Picture
+          src={portrait}
           alt="Adam Gibson smiling in a blue shirt"
           class="portrait"
-          width="480"
-          height="620"
-          src="/assets/portrait.jpeg"
+          formats={["avif", "webp"]}
+          fallbackFormat="webp"
+          quality={65}
+          widths={[240, 480, 720, 960]}
+          sizes="(min-width: 50em) 40vw, 100vw"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
       </header>
 
@@ -140,7 +148,7 @@ const projects = (await getCollection("work"))
     aspect-ratio: calc(2.25 / var(--bg-scale));
     top: 0;
     transform: translateY(-75%) translateX(-50%);
-    background: url("/assets/backgrounds/noise.png") top center/220px repeat,
+    background: url("/assets/backgrounds/noise.avif") top center/220px repeat,
       var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
       var(--gray-999);
     background-blend-mode: overlay, normal, normal, normal;

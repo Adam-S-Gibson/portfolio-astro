@@ -1,7 +1,7 @@
 ---
 title: Portfolio
 publishDate: 2020-10-04 00:00:00
-img: /assets/portfolio.png
+img: ../../assets/portfolio.webp
 img_alt: A screenshot of the main page of this portfolio website
 github: https://github.com/Adam-S-Gibson/portfolio-astro
 description: |

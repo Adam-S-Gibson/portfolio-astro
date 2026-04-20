@@ -1,5 +1,6 @@
 ---
-import { CollectionEntry, getCollection } from "astro:content";
+import { type CollectionEntry, getCollection } from "astro:content";
+import { Picture } from "astro:assets";
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
@@ -49,7 +50,18 @@ const { Content } = await entry.render();
           {
             entry.data.img && (
               <a href={entry.data.link}>
-                <img src={entry.data.img} alt={entry.data.img_alt || ""} />{" "}
+                <Picture
+                  src={entry.data.img}
+                  alt={entry.data.img_alt || ""}
+                  formats={["avif", "webp"]}
+                  fallbackFormat="webp"
+                  quality={70}
+                  widths={[360, 540, 720, 1080]}
+                  sizes="(min-width: 50em) min(65ch, 60vw), 100vw"
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="async"
+                />{" "}
               </a>
             )
           }

@@ -1,7 +1,7 @@
 ---
 title: Mission Control
 publishDate: 2021-12-01 00:00:00
-img: /assets/mission_control.png
+img: ../../assets/mission_control.webp
 img_alt: A map on a black background with a car on it
 description: |
   We paired state of the art cloud solutions with autonomous vehicles to control them from a distance.
