@@ -3,7 +3,7 @@ title: Pokédex
 publishDate: 2022-03-02 00:00:00
 link: https://adam-s-gibson.github.io/pokemon-stat-dex/
 img: ../../assets/pokedex.webp
-img_alt: A picture of a Bulbasaur with its stats and typing next to it
+img_alt: Bulbasaur with its stats and typing next to it
 github: https://github.com/Adam-S-Gibson/pokemon-stat-dex
 description: |
   A place to find information on your favourite pokémon
