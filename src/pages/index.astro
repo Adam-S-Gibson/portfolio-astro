@@ -24,14 +24,35 @@ const projects = (await getCollection("work"))
     <div class="wrapper stack gap-8 lg:gap-20">
       <header class="hero">
         <Hero
-          title="Hello, my name is Adam Gibson"
-          tagline="I am a Developer currently based in England."
+          title="Adam Gibson"
+          tagline="Software engineer at Condé Nast, building the SDK and data pipelines that run A/B tests across Vogue, GQ, and Wired. TypeScript, React, AWS, Kubernetes, Terraform, Databricks."
           align="start"
         >
+          <p class="prompt" aria-hidden="true" slot="before">
+            <span class="prompt-user">adam@portfolio</span><span
+              class="prompt-sep">:</span><span class="prompt-path">~</span><span
+              class="prompt-char">$</span> whoami<span class="cursor"></span>
+          </p>
           <div class="roles">
-            <span style="font-style: italic; font-size:x-large;"
-              >#Developer #Engineer #Problem_solver</span
+            <span class="availability">
+              <span class="availability-dot" aria-hidden="true"></span>
+              Open to new roles · London / remote
+            </span>
+          </div>
+          <div class="hero-actions">
+            <CallToAction href="mailto:adamsteven15@gmail.com">
+              Get in touch
+              <Icon icon="paper-plane-tilt" size="1.2em" />
+            </CallToAction>
+            <a
+              class="secondary-link"
+              href="https://docs.google.com/document/d/1wStY8L_CoDk32BAORXEbwxR55tDiDSE5ed8J3fYzEhA/export?format=pdf"
+              target="_blank"
+              rel="noopener"
             >
+              Download CV
+              <Icon icon="arrow-right" size="1.1em" />
+            </a>
           </div>
         </Hero>
 
@@ -94,11 +115,113 @@ const projects = (await getCollection("work"))
   }
 
   .roles {
-    display: none;
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.75rem;
+    font-family: var(--font-brand);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--gray-100);
+    background-color: var(--gray-999_40);
+    border: 1px solid var(--gray-800);
+    border-radius: 999rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .availability-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999rem;
+    background-color: #22c55e;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+    animation: availability-pulse 2s ease-in-out infinite;
+  }
+
+  .prompt {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--gray-400);
+    letter-spacing: 0.01em;
+  }
+
+  .prompt-user {
+    color: var(--accent-regular);
+    font-weight: 600;
+  }
+
+  .prompt-sep {
+    color: var(--gray-400);
+  }
+
+  .prompt-path {
+    color: var(--gray-300);
+  }
+
+  .prompt-char {
+    color: var(--accent-dark);
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 0.5rem;
+    height: 1em;
+    margin-left: 0.2rem;
+    vertical-align: -0.15em;
+    background-color: currentColor;
+    animation: cursor-blink 1.1s steps(2, start) infinite;
+  }
+
+  @keyframes cursor-blink {
+    to {
+      visibility: hidden;
+    }
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .secondary-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.25rem;
+    color: var(--gray-100);
+    font-family: var(--font-brand);
+    font-size: var(--text-md);
+    text-decoration: underline 1px solid transparent;
+    text-underline-offset: 0.35em;
+    transition: text-decoration-color var(--theme-transition);
+  }
+
+  .secondary-link:hover,
+  .secondary-link:focus {
+    text-decoration-color: currentColor;
+  }
+
+  @keyframes availability-pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.55;
+    }
   }
 
   .hero img {
-    aspect-ratio: 5 / 4;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
     object-position: top;
     border-radius: 1.5rem;
@@ -113,16 +236,9 @@ const projects = (await getCollection("work"))
       gap: 3.75rem;
     }
 
-    .roles {
-      margin-top: 0.5rem;
-      display: flex;
-      gap: 0.5rem;
-    }
-
     .hero img {
-      aspect-ratio: 3 / 4;
-      border-radius: 4.5rem;
-      object-fit: cover;
+      aspect-ratio: 4 / 5;
+      border-radius: 2rem;
     }
   }
 

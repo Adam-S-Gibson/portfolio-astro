@@ -3,35 +3,46 @@ import Icon from "./Icon.astro";
 ---
 
 <section class="box skills">
-  <div class="stack gap-2 lg:gap-4">
-    <Icon
-      icon="terminal-window"
-      color="var(--accent-regular)"
-      size="2.5rem"
-      gradient
-    />
-    <h2>Full Stack</h2>
+  <div class="skill">
+    <header class="skill-head">
+      <Icon icon="code" color="var(--accent-regular)" size="2rem" gradient />
+      <h2>Full-stack by default</h2>
+    </header>
     <p>
-      From React to Node.js, you can count on me for high quality maintainable
-      code.
+      Happy moving between a React SDK, a backend service, a Terraform module,
+      or a data pipeline in the same week. To me, it's all about the big picture, not a single piece of the puzzle.
     </p>
   </div>
-  <div class="stack gap-2 lg:gap-4">
-    <Icon icon="trophy" color="var(--accent-regular)" size="2.5rem" gradient />
-    <h2>Naturally Curious</h2>
-    <p>Never Scared of a new challenge or new technology! Gimme your best!</p>
-  </div>
-  <div class="stack gap-2 lg:gap-4">
-    <Icon
-      icon="strategy"
-      color="var(--accent-regular)"
-      size="2.5rem"
-      gradient
-    />
-    <h2>Logically-Minded</h2>
+  <div class="skill">
+    <header class="skill-head">
+      <Icon
+        icon="strategy"
+        color="var(--accent-regular)"
+        size="2rem"
+        gradient
+      />
+      <h2>Drawn to root causes</h2>
+    </header>
     <p>
-      Working on top-notch, scalable, resuable features that can be customised
-      on the fly.
+      The bugs I enjoy most are the ones that have stumped other engineers,
+      races, feedback loops, silent data issues. I'd rather spend a week on
+      the real cause than ship a workaround.
+    </p>
+  </div>
+  <div class="skill">
+    <header class="skill-head">
+      <Icon
+        icon="rocket-launch"
+        color="var(--accent-regular)"
+        size="2rem"
+        gradient
+      />
+      <h2>Pragmatic about performance</h2>
+    </header>
+    <p>
+      Latency, cost, and cluster headroom are numbers I actually watch. Most
+      of my wins come from measuring before optimising and knowing when
+      "fast enough" is the right answer.
     </p>
   </div>
 </section>
@@ -51,8 +62,21 @@ import Icon from "./Icon.astro";
     gap: 3rem;
   }
 
+  .skill {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .skill-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
   .skills h2 {
     font-size: var(--text-lg);
+    margin: 0;
   }
 
   .skills p {
@@ -68,11 +92,21 @@ import Icon from "./Icon.astro";
     .skills {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 5rem;
+      grid-template-rows: auto auto;
+      column-gap: 5rem;
+      row-gap: 1.25rem;
+    }
+
+    .skill {
+      display: grid;
+      grid-row: span 2;
+      grid-template-rows: subgrid;
+      gap: 1.25rem;
     }
 
     .skills h2 {
-      font-size: var(--text-2xl);
+      font-size: var(--text-xl);
+      align-self: center;
     }
   }
 </style>

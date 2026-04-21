@@ -4,20 +4,28 @@ import "../styles/global.css";
 interface Props {
   title?: string | undefined;
   description?: string | undefined;
+  ogImage?: string | undefined;
+  ogType?: "website" | "article";
 }
 
 const {
-  title = "Adam Gibson: Personal Site",
-  description = "The personal site of Adam Gibson",
+  title = "Adam Gibson — Software Engineer",
+  description = "Software engineer at Condé Nast. I build experimentation platforms, data pipelines, and Terraform-driven infrastructure.",
+  ogImage = "/assets/og-default.png",
+  ogType = "website",
 } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
+const resolvedOgImage = new URL(ogImage, Astro.site ?? Astro.url).toString();
 ---
 
 <meta charset="UTF-8" />
-<meta name="description" property="og:description" content={description} />
+<meta name="description" content={description} />
 <meta name="viewport" content="width=device-width" />
 <meta name="generator" content={Astro.generator} />
 <title>{title}</title>
 
+<link rel="canonical" href={canonical.toString()} />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,6 +33,17 @@ const {
   href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&family=Rubik:wght@500;600&display=swap"
   rel="stylesheet"
 />
+
+<meta property="og:type" content={ogType} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical.toString()} />
+<meta property="og:image" content={resolvedOgImage} />
+<meta property="og:site_name" content="Adam Gibson" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={resolvedOgImage} />
 
 <script is:inline>
   // This code is inlined in the head to make dark mode instant & blocking.

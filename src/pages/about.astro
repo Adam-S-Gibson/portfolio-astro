@@ -6,6 +6,101 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactCTA from "../components/ContactCTA.astro";
 import Hero from "../components/Hero.astro";
 import adam from "../assets/adam.avif";
+
+const yearsExperience = new Date().getFullYear() - 2020;
+
+const roles = [
+  {
+    title: "Software Engineer II",
+    company: "Condé Nast",
+    location: "London, UK",
+    period: "Jan 2025 — present",
+    summary:
+      "Experimentation SDK and data pipelines powering A/B tests across Vogue, GQ, Wired, and the wider brand portfolio. TypeScript, React, MongoDB, Databricks, Kubernetes, Terraform.",
+  },
+  {
+    title: "Freelance Developer",
+    company: "Self-employed",
+    location: "Remote, UK",
+    period: "Apr 2023 — present",
+    summary:
+      "Websites and web apps for clients on Squarespace, Shopify, and custom HTML/CSS/JS stacks. Scoping, delivery, and ongoing support.",
+  },
+  {
+    title: "Software Engineer",
+    company: "Charter",
+    location: "London, UK",
+    period: "Mar 2024 — Nov 2024",
+    summary:
+      "Next.js, React, PostgreSQL, GraphQL. Query tuning, caching, and an RxDB in-memory layer that unblocked offline-capable features.",
+  },
+  {
+    title: "Software Engineer",
+    company: "StreetDrone",
+    location: "Oxford, UK",
+    period: "Oct 2021 — Mar 2023",
+    summary:
+      "Real-time tracking for remotely operated vehicles on MQTT, Kinesis, Lambda, and DynamoDB, with Vue and React frontends. Multi-AZ Terraform infrastructure.",
+  },
+  {
+    title: "Junior Software Engineer",
+    company: "Paradigm",
+    location: "Alton, UK",
+    period: "Dec 2020 — Oct 2021",
+    summary:
+      "C# / SignalR backend, Node.js + GraphQL tooling, and a React frontend hardened with Zustand and Zod. First role out of university.",
+  },
+];
+
+const skillGroups = [
+  {
+    label: "Languages",
+    items: ["TypeScript", "JavaScript", "Python", "Go", "C#", "SQL", "GraphQL"],
+  },
+  {
+    label: "Frameworks",
+    items: ["React", "Redux", "Next.js", "Vue.js", "Node.js", "Apollo", "Zustand", "Zod"],
+  },
+  {
+    label: "Cloud & infra",
+    items: ["AWS", "GCP", "Kubernetes", "Docker", "Terraform", "OpenTelemetry"],
+  },
+  {
+    label: "Data",
+    items: ["PostgreSQL", "MySQL", "MongoDB", "Databricks"],
+  },
+  {
+    label: "Tooling",
+    items: ["GitHub Actions", "Linux", "Jest", "Claude Code", "Codex", "Ollama"],
+  },
+];
+
+const education = [
+  {
+    degree: "MSc Advanced Computer Science",
+    institution: "Oxford Brookes University",
+    year: "Sep 2019 — Dec 2020",
+  },
+  {
+    degree: "BSc Computer Science and Japanese Studies",
+    institution: "Oxford Brookes University",
+    year: "Sep 2015 — Jul 2019",
+  },
+];
+
+const mentoring = [
+  {
+    title: "Career mentoring in programming",
+    detail: "One-to-one coaching on technical interviews and early-career direction.",
+    period: "Jun 2024 — present",
+  },
+  {
+    title: "Computer Science lecturer",
+    detail:
+      "Guest lecturer covering programming, data structures and algorithms, and career advice.",
+    period: "Sep 2019 — Dec 2019",
+  },
+];
 ---
 
 <BaseLayout title="About | Adam Gibson" description="About Adam Gibson">
@@ -32,54 +127,104 @@ import adam from "../assets/adam.avif";
       <section>
         <h2 class="section-title">Background</h2>
         <div class="content">
-          Allow me to introduce myself again! <br /><br /> My name is Adam Gibson,
-          and I am a software engineer with a passion for creating dynamic and innovative
-          web applications. With <span id="years-experience"></span> Years of experience
-          in the industry, I have worked in several roles, including as a
-          .NET Engineer in Hampshire, a Cloud Software Engineer in Oxford,
-          a Full-Stack Engineer in Wales, and most recently a Software engineer in London.
-          <br />
-          <br />
-          Throughout my career, I have primarily focused on web development using
-          popular technologies such as React, Node.js, and TypeScript. These tools
-          have allowed me to create robust and scalable applications that meet the
-          needs of clients and end-users alike. I am particularly skilled in utilizing
-          these technologies to develop user-friendly and intuitive interfaces that
-          enhance the overall user experience. <br />
-          <br /> In addition to my expertise in web development, I also have extensive
-          experience with AWS and Linux. I have worked on a wide range of projects
-          that have required the use of these technologies, from building serverless
-          applications on AWS to managing complex Linux-based systems. My proficiency
-          in these areas has been critical in delivering high-quality solutions that
-          are secure, efficient, and reliable.
-          <br />
-          <br /> Overall, my passion for technology and my dedication to delivering
-          exceptional work make me an ideal candidate for any project. Please take
-          some time to explore my portfolio, which features a selection of my most
-          recent work. If you have any questions or would like to discuss potential
-          projects, please don't hesitate to reach out.
+          <p>
+            Software engineer, {yearsExperience} years in. I'm currently at
+            Condé Nast in London, working on the experimentation SDK and data
+            pipelines that run A/B tests across Vogue, GQ, Wired, and the
+            wider brand portfolio.
+          </p>
+          <p>
+            I started at Paradigm on a C# / SignalR backend, moved to
+            StreetDrone building real-time infrastructure for remotely
+            operated vehicles on AWS, then spent a stretch at Charter on a
+            Next.js and PostgreSQL stack — which is where most of my cloud,
+            database, and Terraform experience comes from. I've freelanced
+            alongside it since 2023.
+          </p>
+          <p>
+            The work I enjoy most tends to sit at the seams — the SDK every
+            team depends on, the data pipeline nobody remembers owning, the
+            race condition nobody wanted to open. Those problems reward
+            patience and usually teach you something load-bearing about the
+            system.
+          </p>
+          <p>
+            Recent side projects live in the <a href="/work/">work</a>{" "}
+            section.
+          </p>
+        </div>
+      </section>
+      <section>
+        <h2 class="section-title">Experience</h2>
+        <div class="content">
+          <ol class="roles">
+            {
+              roles.map((role) => (
+                <li class="role">
+                  <div class="role-header">
+                    <p class="role-title">
+                      {role.title} · <span class="role-company">{role.company}</span>
+                    </p>
+                    <p class="role-period">{role.period}</p>
+                  </div>
+                  <p class="role-summary">{role.summary}</p>
+                </li>
+              ))
+            }
+          </ol>
         </div>
       </section>
       <section>
         <h2 class="section-title">Education</h2>
         <div class="content">
-          <span class="education">
-            <p>MSc Advanced Computer Science</p>
-            <p>Dec 2020</p>
-          </span>
-          <span class="education">
-            <p>BSc Computer Science and Japanese Studies</p>
-            <p>Jun 2019</p>
-          </span>
+          <ol class="roles">
+            {
+              education.map((item) => (
+                <li class="role">
+                  <div class="role-header">
+                    <p class="role-title">
+                      {item.degree} ·{" "}
+                      <span class="role-company">{item.institution}</span>
+                    </p>
+                    <p class="role-period">{item.year}</p>
+                  </div>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+      </section>
+      <section>
+        <h2 class="section-title">Mentoring</h2>
+        <div class="content">
+          <ol class="roles">
+            {
+              mentoring.map((item) => (
+                <li class="role">
+                  <div class="role-header">
+                    <p class="role-title">{item.title}</p>
+                    <p class="role-period">{item.period}</p>
+                  </div>
+                  <p class="role-summary">{item.detail}</p>
+                </li>
+              ))
+            }
+          </ol>
         </div>
       </section>
       <section>
         <h2 class="section-title">Skills</h2>
         <div class="content">
-          <p>
-            Python, JavaScript, TypeScript, HTML, CSS, React, Vue, Cypress, Go,
-            Node.js, Bash, Linux
-          </p>
+          <dl class="skill-groups">
+            {
+              skillGroups.map((group) => (
+                <div class="skill-group">
+                  <dt>{group.label}</dt>
+                  <dd>{group.items.join(" · ")}</dd>
+                </div>
+              ))
+            }
+          </dl>
         </div>
       </section>
     </main>
@@ -88,13 +233,6 @@ import adam from "../assets/adam.avif";
   </div>
 </BaseLayout>
 
-<script>
-  const currentYear = new Date().getFullYear();
-
-  const p = document.querySelector("#years-experience");
-  p!.textContent = `${currentYear - 2020}`;
-</script>
-
 <style>
   .about {
     display: flex;
@@ -102,9 +240,85 @@ import adam from "../assets/adam.avif";
     gap: 3.5rem;
   }
 
-  .education {
+  .content p + p {
+    margin-top: 1rem;
+  }
+
+  .roles {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .role {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .role-header {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+    gap: 0.5rem 1rem;
+  }
+
+  .role-title {
+    color: var(--gray-100);
+    font-family: var(--font-brand);
+    font-weight: 500;
+  }
+
+  .role-company {
+    color: var(--gray-300);
+    font-weight: 400;
+  }
+
+  .role-period {
+    color: var(--gray-400);
+    font-variant-numeric: tabular-nums;
+    font-size: var(--text-sm);
+  }
+
+  .role-summary {
+    color: var(--gray-300);
+  }
+
+  .skill-groups {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+  }
+
+  .skill-group {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: 0.75rem;
+    align-items: baseline;
+  }
+
+  .skill-group dt {
+    color: var(--gray-100);
+    font-family: var(--font-brand);
+    font-weight: 500;
+    font-size: var(--text-sm);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .skill-group dd {
+    margin: 0;
+    color: var(--gray-300);
+  }
+
+  @media (max-width: 49.99em) {
+    .skill-group {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
   }
 
   img {
