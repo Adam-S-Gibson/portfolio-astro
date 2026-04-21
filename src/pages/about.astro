@@ -16,7 +16,7 @@ const roles = [
     location: "London, UK",
     period: "Jan 2025 — present",
     summary:
-      "Experimentation SDK and data pipelines powering A/B tests across Vogue, GQ, Wired, and the wider brand portfolio. TypeScript, React, MongoDB, Databricks, Kubernetes, Terraform.",
+      "Experimentation and data pipelines powering A/B tests across Vogue, GQ, Wired, and the wider brand portfolio. TypeScript, React, MongoDB, Databricks, Kubernetes, Terraform.",
   },
   {
     title: "Freelance Developer",
@@ -55,23 +55,31 @@ const roles = [
 const skillGroups = [
   {
     label: "Languages",
-    items: ["TypeScript", "JavaScript", "Python", "Go", "C#", "SQL", "GraphQL"],
+    items: ["TypeScript", "JavaScript", "Python", "Go", "C#"],
   },
   {
     label: "Frameworks",
-    items: ["React", "Redux", "Next.js", "Vue.js", "Node.js", "Apollo", "Zustand", "Zod"],
+    items: ["React", "Next.js", "Vue.js", "Redux", "Zustand", "Zod"],
   },
   {
-    label: "Cloud & infra",
-    items: ["AWS", "GCP", "Kubernetes", "Docker", "Terraform", "OpenTelemetry"],
+    label: "API & Data Layer",
+    items: ["GraphQL", "Apollo", "SQL"],
   },
   {
-    label: "Data",
+    label: "Data & Databases",
     items: ["PostgreSQL", "MySQL", "MongoDB", "Databricks"],
   },
   {
-    label: "Tooling",
-    items: ["GitHub Actions", "Linux", "Jest", "Claude Code", "Codex", "Ollama"],
+    label: "Cloud & Infra",
+    items: ["AWS", "GCP", "Kubernetes", "Docker", "Terraform"],
+  },
+  {
+    label: "DevOps & Tooling",
+    items: ["GitHub Actions", "Linux", "Jest"],
+  },
+  {
+    label: "AI / LLM Tooling",
+    items: ["Claude Code", "Codex", "Ollama"],
   },
 ];
 
@@ -129,20 +137,20 @@ const mentoring = [
         <div class="content">
           <p>
             Software engineer, {yearsExperience} years in. I'm currently at
-            Condé Nast in London, working on the experimentation SDK and data
+            Condé Nast in London, working on the experimentation and data
             pipelines that run A/B tests across Vogue, GQ, Wired, and the
             wider brand portfolio.
           </p>
           <p>
             I started at Paradigm on a C# / SignalR backend, moved to
             StreetDrone building real-time infrastructure for remotely
-            operated vehicles on AWS, then spent a stretch at Charter on a
-            Next.js and PostgreSQL stack — which is where most of my cloud,
-            database, and Terraform experience comes from. I've freelanced
-            alongside it since 2023.
+            operated vehicles on AWS, which is where most of my cloud, database,
+            and Terraform experience comes from then spent a stretch at Charter 
+            on a Next.js and PostgreSQL stack. I've freelanced on the side it 
+            since 2023.
           </p>
           <p>
-            The work I enjoy most tends to sit at the seams — the SDK every
+            The work I enjoy most tends to sit at the seams, the SDK every
             team depends on, the data pipeline nobody remembers owning, the
             race condition nobody wanted to open. Those problems reward
             patience and usually teach you something load-bearing about the
