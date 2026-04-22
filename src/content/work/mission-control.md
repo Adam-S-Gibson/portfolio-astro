@@ -5,6 +5,7 @@ img: ../../assets/mission_control.webp
 img_alt: A map on a black background with a car on it
 description: |
   We paired state of the art cloud solutions with autonomous vehicles to control them from a distance.
+highlight: true
 tags:
   - Vue
   - AWS

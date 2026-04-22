@@ -5,6 +5,7 @@ img: ../../assets/conde-nast.webp
 img_alt: Screenshot of the Wired homepage
 description: |
   Building and scaling the experimentation platform powering A/B tests across Condé Nast's global brands.
+highlight: true
 tags:
   - TypeScript
   - AWS

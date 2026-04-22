@@ -6,6 +6,7 @@ img_alt: A screenshot of the main page of this portfolio website
 github: https://github.com/Adam-S-Gibson/portfolio-astro
 description: |
   This very same portfolio that you're currently looking at!
+highlight: true
 tags:
   - Astro
   - HTML

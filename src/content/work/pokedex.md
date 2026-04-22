@@ -7,6 +7,7 @@ img_alt: Bulbasaur with its stats and typing next to it
 github: https://github.com/Adam-S-Gibson/pokemon-stat-dex
 description: |
   A place to find information on your favourite pokémon
+highlight: true
 tags:
   - React
   - Shadcn/UI
