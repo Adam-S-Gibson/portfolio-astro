@@ -6,341 +6,441 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import portrait from "../assets/portrait.avif";
 
 import CallToAction from "../components/CallToAction.astro";
-import Grid from "../components/Grid.astro";
-import Hero from "../components/Hero.astro";
-import Icon from "../components/Icon.astro";
 import PortfolioPreview from "../components/PortfolioPreview.astro";
-
 import ContactCTA from "../components/ContactCTA.astro";
 import Skills from "../components/Skills.astro";
 
 const projects = (await getCollection("work"))
-  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()).filter((project) => project.data.highlight == true)
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .filter((project) => project.data.highlight == true)
   .slice(0, 4);
 ---
 
 <BaseLayout>
-  <div class="stack gap-20 lg:gap-48">
-    <div class="wrapper stack gap-8 lg:gap-20">
-      <header class="hero">
-        <Hero
-          title="Adam Gibson"
-          tagline="Software engineer at Condé Nast, building the SDK and data pipelines that run A/B tests across Vogue, GQ, and Wired. TypeScript, React, AWS, Kubernetes, Terraform, Databricks."
-          align="start"
-        >
-          <p class="prompt" aria-hidden="true" slot="before">
-            <span class="prompt-user">adam@portfolio</span><span
-              class="prompt-sep">:</span><span class="prompt-path">~</span><span
-              class="prompt-char">$</span> whoami<span class="cursor"></span>
-          </p>
-          <div class="roles">
-            <span class="availability">
-              <span class="availability-dot" aria-hidden="true"></span>
-              Open to new roles · London / remote
-            </span>
-          </div>
-          <div class="hero-actions">
-            <CallToAction href="mailto:adamsteven15@gmail.com">
-              Get in touch
-              <Icon icon="paper-plane-tilt" size="1.2em" />
-            </CallToAction>
-            <a
-              class="secondary-link"
-              href="https://docs.google.com/document/d/1wStY8L_CoDk32BAORXEbwxR55tDiDSE5ed8J3fYzEhA/export?format=pdf"
-              target="_blank"
-              rel="noopener"
-            >
-              Download CV
-              <Icon icon="arrow-right" size="1.1em" />
-            </a>
-          </div>
-        </Hero>
-
-        <Picture
-          src={portrait}
-          alt="Adam Gibson smiling in a blue shirt"
-          class="portrait"
-          formats={["avif", "webp"]}
-          fallbackFormat="webp"
-          quality={65}
-          widths={[240, 480, 720, 960]}
-          sizes="(min-width: 50em) 40vw, 100vw"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-        />
-      </header>
-
-      <Skills />
-    </div>
-
-    <main class="wrapper stack gap-20 lg:gap-48">
-      <section class="section with-background with-cta">
-        <header class="section-header stack gap-2 lg:gap-4">
-          <h3>Gallery</h3>
-          <p>Take a look at some of my work.</p>
+  <div class="stack gap-15">
+    <section class="wrapper hero-wrap">
+      <div class="hero win">
+        <header class="win-bar">
+          <span class="win-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="win-title"><span class="at">adam@portfolio</span>: ~ &mdash; zsh &mdash; 120x40</span>
         </header>
 
-        <div class="gallery">
-          <Grid variant="offset">
-            {
-              projects.map((project) => (
-                <li>
-                  <PortfolioPreview project={project} />
-                </li>
-              ))
-            }
-          </Grid>
-        </div>
+        <div class="win-body hero-body">
+          <div class="hero-text">
+            <hero-typer class="terminal" data-speed="32" data-pause="280">
+              <div class="step" data-cmd="whoami">
+                <p class="line prompt-line"></p>
+                <div class="output">
+                  <h1 class="hero-title">Adam Gibson</h1>
+                  <p class="role-line">
+                    <span class="muted">&gt;</span> software engineer · condé nast
+                  </p>
+                </div>
+              </div>
 
-        <div class="cta">
-          <CallToAction href="/work/">
-            View All
-            <Icon icon="arrow-right" size="1.2em" />
-          </CallToAction>
+              <div class="step" data-cmd="cat tagline.txt">
+                <p class="line prompt-line"></p>
+                <div class="output">
+                  <p class="tagline">
+                    I build the SDK and data pipelines that run A/B tests across
+                    Vogue, GQ, and Wired. TypeScript, React, AWS, Kubernetes,
+                    Terraform, Databricks.
+                  </p>
+                </div>
+              </div>
+
+              <div class="step" data-cmd="status --availability">
+                <p class="line prompt-line"></p>
+                <div class="output">
+                  <p class="availability">
+                    <span class="dot" aria-hidden="true"></span>
+                    open to new roles · london / remote
+                  </p>
+                </div>
+              </div>
+
+              <div class="step" data-cmd="ls --actions" data-final>
+                <p class="line prompt-line"></p>
+                <div class="output">
+                  <div class="hero-actions">
+                    <CallToAction href="mailto:adamsteven15@gmail.com">get in touch</CallToAction>
+                    <a
+                      class="secondary"
+                      href="https://docs.google.com/document/d/1wStY8L_CoDk32BAORXEbwxR55tDiDSE5ed8J3fYzEhA/export?format=pdf"
+                      target="_blank"
+                      rel="noopener"
+                    >&rarr; download cv.pdf</a>
+                  </div>
+                </div>
+              </div>
+
+              <p class="line idle">
+                <span class="prompt"><span class="u">adam</span><span class="s">@</span><span class="h">portfolio</span><span class="s">:</span><span class="p">~</span> <span class="c">$</span></span>
+                <span class="caret-block"></span>
+              </p>
+            </hero-typer>
+          </div>
+
+          <figure class="portrait-frame">
+            <div class="portrait-bar">
+              <span class="win-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span>portrait.avif</span>
+            </div>
+            <Picture
+              src={portrait}
+              alt="Adam Gibson smiling in a blue shirt"
+              class="portrait"
+              formats={["avif", "webp"]}
+              fallbackFormat="webp"
+              quality={75}
+              widths={[320, 480, 640, 960]}
+              sizes="(min-width: 50em) 380px, 100vw"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+            <figcaption>
+              <span class="muted">$</span> file portrait.avif
+              <br /><span class="muted">portrait.avif: AVIF image, 4:5, color</span>
+            </figcaption>
+          </figure>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
+
+    <section class="wrapper">
+      <Skills />
+    </section>
+
+    <section class="wrapper section">
+      <header class="section-head">
+        <p class="term-prompt">
+          <span class="u">adam</span><span class="s">@</span><span class="h">portfolio</span><span class="s">:</span><span class="p">~</span> <span class="c">$</span> ls -la work/ | head -n 4
+        </p>
+        <h2><span class="muted">#</span> selected work</h2>
+      </header>
+
+      <ul class="file-list">
+        {
+          projects.map((project) => (
+            <li>
+              <PortfolioPreview project={project} />
+            </li>
+          ))
+        }
+      </ul>
+
+      <p class="more">
+        <CallToAction href="/work/">ls work/ --all</CallToAction>
+      </p>
+    </section>
 
     <ContactCTA />
   </div>
 </BaseLayout>
 
-<style>
-  .hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+<script>
+  class HeroTyper extends HTMLElement {
+    connectedCallback() {
+      const speed = Number(this.dataset.speed ?? 32);
+      const pause = Number(this.dataset.pause ?? 280);
+      const preCmd = Number(this.dataset.preCmd ?? 650);
+      const steps = Array.from(this.querySelectorAll<HTMLElement>(".step"));
+
+      // Hide everything by default
+      steps.forEach((step) => {
+        step.style.display = "none";
+        const out = step.querySelector<HTMLElement>(".output");
+        if (out) out.style.display = "none";
+      });
+      const idle = this.querySelector<HTMLElement>(".idle");
+      if (idle) idle.style.display = "none";
+
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      const buildPrompt = (target: HTMLElement) => {
+        target.innerHTML =
+          '<span class="prompt">' +
+          '<span class="u">adam</span><span class="s">@</span>' +
+          '<span class="h">portfolio</span><span class="s">:</span>' +
+          '<span class="p">~</span> <span class="c">$</span></span> ' +
+          '<span class="cmd"></span>' +
+          '<span class="caret-block"></span>';
+      };
+
+      const sleep = (ms: number) =>
+        new Promise<void>((r) => setTimeout(r, ms));
+
+      const showAllImmediately = () => {
+        steps.forEach((step) => {
+          step.style.display = "";
+          const line = step.querySelector<HTMLElement>(".prompt-line");
+          const out = step.querySelector<HTMLElement>(".output");
+          if (line) {
+            buildPrompt(line);
+            const cmdEl = line.querySelector<HTMLElement>(".cmd");
+            const caret = line.querySelector<HTMLElement>(".caret-block");
+            if (cmdEl) cmdEl.textContent = step.dataset.cmd ?? "";
+            if (caret) caret.remove();
+          }
+          if (out) out.style.display = "";
+        });
+        if (idle) idle.style.display = "";
+      };
+
+      if (reduceMotion) {
+        showAllImmediately();
+        return;
+      }
+
+      const run = async () => {
+        for (const step of steps) {
+          step.style.display = "";
+          const line = step.querySelector<HTMLElement>(".prompt-line");
+          if (!line) continue;
+          buildPrompt(line);
+          const cmdEl = line.querySelector<HTMLElement>(".cmd");
+          const caret = line.querySelector<HTMLElement>(".caret-block");
+          const cmd = step.dataset.cmd ?? "";
+
+          // Pause with the prompt visible before typing starts
+          await sleep(preCmd);
+
+          // Type the command character by character
+          for (let i = 0; i < cmd.length; i++) {
+            if (cmdEl) cmdEl.textContent = cmd.slice(0, i + 1);
+            const ch = cmd[i];
+            const variance = ch === " " ? 40 : Math.random() * 60 - 20;
+            await sleep(speed + variance);
+          }
+
+          await sleep(pause);
+
+          // "Press enter": remove caret, reveal output
+          if (caret) caret.remove();
+          const out = step.querySelector<HTMLElement>(".output");
+          if (out) {
+            out.style.display = "";
+            out.classList.add("revealed");
+          }
+
+          await sleep(pause * 1.4);
+        }
+
+        if (idle) idle.style.display = "";
+      };
+
+      // Slight delay so first paint settles
+      window.setTimeout(() => {
+        run().catch(() => showAllImmediately());
+      }, 120);
+    }
   }
 
-  .roles {
-    margin-top: 0.5rem;
+  if (!customElements.get("hero-typer")) {
+    customElements.define("hero-typer", HeroTyper);
+  }
+</script>
+
+<style>
+  .hero-wrap { padding-top: 1.5rem; }
+  .hero { width: 100%; }
+
+  .hero-body {
     display: flex;
-    gap: 0.5rem;
+    flex-direction: column-reverse;
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+
+  .hero-text { min-width: 0; }
+
+  .terminal {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    color: var(--fg);
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .line {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--fg);
+    white-space: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .line::-webkit-scrollbar { display: none; }
+
+  .line :global(.prompt) { color: var(--fg-dim); }
+  .line :global(.u) { color: var(--phosphor-soft); font-weight: 600; }
+  .line :global(.h) { color: var(--cyan); }
+  .line :global(.p) { color: var(--amber); }
+  .line :global(.s) { color: var(--fg-mute); }
+  .line :global(.c) { color: var(--fg-bright); }
+  .line :global(.cmd) { color: var(--fg-bright); }
+
+  .caret-block {
+    display: inline-block;
+    width: 0.55ch;
+    height: 1em;
+    margin-left: 0.25ch;
+    vertical-align: -0.15em;
+    background: var(--phosphor-soft);
+    animation: caret-blink 1s steps(1, end) infinite;
+  }
+
+  .idle { color: var(--fg-dim); }
+  .idle .caret-block { margin-left: 0.4ch; }
+
+  @keyframes caret-blink {
+    0%, 50%   { background: var(--phosphor-soft); }
+    50.01%, 100% { background: transparent; }
+  }
+
+  /* Output reveal */
+  .output {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  .output.revealed {
+    animation: reveal 0.18s ease-out forwards;
+  }
+  @keyframes reveal {
+    to { opacity: 1; transform: none; }
+  }
+
+  .hero-title {
+    font-size: var(--text-4xl);
+    color: var(--fg-bright);
+    line-height: 1.05;
+    margin: 0.2rem 0 0.4rem;
+  }
+
+  .role-line { color: var(--fg-dim); margin-bottom: 0.5rem; }
+  .muted { color: var(--fg-mute); }
+
+  .tagline {
+    color: var(--fg);
+    max-width: 60ch;
+    margin: 0.15rem 0 0.5rem;
   }
 
   .availability {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.35rem 0.75rem;
-    font-family: var(--font-brand);
+    color: var(--fg);
     font-size: var(--text-sm);
-    font-weight: 500;
-    color: var(--gray-100);
-    background-color: var(--gray-999_40);
-    border: 1px solid var(--gray-800);
-    border-radius: 999rem;
-    box-shadow: var(--shadow-sm);
+    margin-bottom: 0.5rem;
   }
-
-  .availability-dot {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 999rem;
-    background-color: #22c55e;
-    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
-    animation: availability-pulse 2s ease-in-out infinite;
-  }
-
-  .prompt {
-    font-family: var(--font-mono);
-    font-size: var(--text-sm);
-    color: var(--gray-400);
-    letter-spacing: 0.01em;
-  }
-
-  .prompt-user {
-    color: var(--accent-regular);
-    font-weight: 600;
-  }
-
-  .prompt-sep {
-    color: var(--gray-400);
-  }
-
-  .prompt-path {
-    color: var(--gray-300);
-  }
-
-  .prompt-char {
-    color: var(--accent-dark);
-  }
-
-  .cursor {
-    display: inline-block;
-    width: 0.5rem;
-    height: 1em;
-    margin-left: 0.2rem;
-    vertical-align: -0.15em;
-    background-color: currentColor;
-    animation: cursor-blink 1.1s steps(2, start) infinite;
-  }
-
-  @keyframes cursor-blink {
-    to {
-      visibility: hidden;
-    }
+  .availability .dot {
+    width: 0.55rem;
+    height: 0.55rem;
+    background: var(--phosphor-soft);
+    box-shadow: 0 0 0 3px var(--phosphor-trace);
+    animation: pulse 2s ease-in-out infinite;
   }
 
   .hero-actions {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 1rem 1.5rem;
-    margin-top: 0.5rem;
+    gap: 0.75rem 1.25rem;
+    margin-top: 0.6rem;
   }
 
-  .secondary-link {
-    display: inline-flex;
+  .secondary {
+    color: var(--fg);
+    font-family: var(--font-mono);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--rule);
+    padding-bottom: 0.1rem;
+  }
+  .secondary:hover, .secondary:focus-visible {
+    color: var(--phosphor-soft);
+    border-bottom-color: var(--phosphor-soft);
+  }
+
+  /* Portrait window */
+  .portrait-frame {
+    border: 1px solid var(--rule);
+    background: var(--bg-elev);
+    align-self: start;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .portrait-bar {
+    display: flex;
     align-items: center;
-    gap: 0.4rem;
-    padding: 0.5rem 0.25rem;
-    color: var(--gray-100);
-    font-family: var(--font-brand);
-    font-size: var(--text-md);
-    text-decoration: underline 1px solid transparent;
-    text-underline-offset: 0.35em;
-    transition: text-decoration-color var(--theme-transition);
+    gap: 0.5rem;
+    background: var(--bg-window-bar);
+    border-bottom: 1px solid var(--rule);
+    padding: 0.4rem 0.6rem;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--fg-dim);
   }
-
-  .secondary-link:hover,
-  .secondary-link:focus {
-    text-decoration-color: currentColor;
+  .portrait-frame :global(picture),
+  .portrait-frame :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
   }
-
-  @keyframes availability-pulse {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.55;
-    }
-  }
-
-  .hero img {
+  .portrait-frame :global(img) {
     aspect-ratio: 4 / 5;
     object-fit: cover;
     object-position: top;
-    border-radius: 1.5rem;
-    box-shadow: var(--shadow-md);
+  }
+  :root.theme-dark .portrait-frame :global(img) {
+    filter: contrast(1.04) saturate(0.85) brightness(0.92);
+  }
+  .portrait-frame figcaption {
+    padding: 0.4rem 0.6rem;
+    border-top: 1px dashed var(--rule);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--fg-dim);
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
   }
 
   @media (min-width: 50em) {
-    .hero {
+    .hero-body {
       display: grid;
-      grid-template-columns: 6fr 4fr;
-      padding-inline: 2.5rem;
-      gap: 3.75rem;
+      grid-template-columns: 1.7fr 1fr;
+      gap: 2.5rem;
+      padding: 2rem;
+      align-items: start;
     }
-
-    .hero img {
-      aspect-ratio: 4 / 5;
-      border-radius: 2rem;
-    }
+    .hero-title { font-size: var(--text-5xl); }
+    .portrait-frame { max-width: none; }
   }
 
-  /* ====================================================== */
-
+  /* Section */
   .section {
-    display: grid;
-    gap: 2rem;
-  }
-
-  .with-background {
-    position: relative;
-  }
-
-  .with-background::before {
-    --hero-bg: var(--bg-image-subtle-2);
-
-    content: "";
-    position: absolute;
-    pointer-events: none;
-    left: 50%;
-    width: 100vw;
-    aspect-ratio: calc(2.25 / var(--bg-scale));
-    top: 0;
-    transform: translateY(-75%) translateX(-50%);
-    background: url("/assets/backgrounds/noise.avif") top center/220px repeat,
-      var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
-      var(--gray-999);
-    background-blend-mode: overlay, normal, normal, normal;
-    mix-blend-mode: var(--bg-blend-mode);
-    z-index: -1;
-  }
-
-  .with-background.bg-variant::before {
-    --hero-bg: var(--bg-image-subtle-1);
-  }
-
-  .section-header {
-    justify-self: center;
-    text-align: center;
-    max-width: 50ch;
-    font-size: var(--text-md);
-    color: var(--gray-300);
-  }
-
-  .section-header h3 {
-    font-size: var(--text-2xl);
-  }
-
-  @media (min-width: 50em) {
-    .section {
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-areas: "header header header header" "gallery gallery gallery gallery";
-      gap: 5rem;
-    }
-
-    .section.with-cta {
-      grid-template-areas: "header header header cta" "gallery gallery gallery gallery";
-    }
-
-    .section-header {
-      grid-area: header;
-      font-size: var(--text-lg);
-    }
-
-    .section-header h3 {
-      font-size: var(--text-4xl);
-    }
-
-    .with-cta .section-header {
-      justify-self: flex-start;
-      text-align: left;
-    }
-
-    .gallery {
-      grid-area: gallery;
-    }
-
-    .cta {
-      grid-area: cta;
-    }
-  }
-
-  /* ====================================================== */
-
-  .mention-card {
     display: flex;
-    height: 7rem;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border: 1px solid var(--gray-800);
-    border-radius: 1.5rem;
-    color: var(--gray-300);
-    background: var(--gradient-subtle);
-    box-shadow: var(--shadow-sm);
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .section-head h2 {
+    font-size: var(--text-2xl);
+    color: var(--fg-bright);
+    margin-top: 0.4rem;
   }
 
-  @media (min-width: 50em) {
-    .mention-card {
-      border-radius: 1.5rem;
-      height: 9.5rem;
-    }
-  }
+  .more { margin-top: 0.5rem; }
 </style>

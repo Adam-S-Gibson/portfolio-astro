@@ -2,29 +2,30 @@
 import { getCollection } from "astro:content";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
-
 import ContactCTA from "../components/ContactCTA.astro";
 import PortfolioPreview from "../components/PortfolioPreview.astro";
-import Hero from "../components/Hero.astro";
-import Grid from "../components/Grid.astro";
 
 const projects = (await getCollection("work")).sort(
   (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 );
+const total = projects.length;
 ---
 
 <BaseLayout
   title="My Work | Adam Gibson"
   description="Learn about Adam Gibson's most recent projects"
 >
-  <div class="stack gap-20">
+  <div class="stack gap-15">
     <main class="wrapper stack gap-8">
-      <Hero
-        title="My Work"
-        tagline="See my most recent projects below to get an idea of my past experience."
-        align="start"
-      />
-      <Grid variant="offset">
+      <header class="head stack gap-2">
+        <p class="term-prompt">
+          <span class="u">adam</span><span class="s">@</span><span class="h">portfolio</span><span class="s">:</span><span class="p">~/work</span> <span class="c">$</span> ls -la --sort=date
+        </p>
+        <h1>work/</h1>
+        <p class="meta">total <span class="num">{total}</span> &mdash; recent projects, newest first</p>
+      </header>
+
+      <ul class="file-list">
         {
           projects.map((project) => (
             <li>
@@ -32,8 +33,37 @@ const projects = (await getCollection("work")).sort(
             </li>
           ))
         }
-      </Grid>
+      </ul>
+
+      <p class="term-prompt done">
+        <span class="u">adam</span><span class="s">@</span><span class="h">portfolio</span><span class="s">:</span><span class="p">~/work</span> <span class="c">$</span> <span class="cursor"></span>
+      </p>
     </main>
+
     <ContactCTA />
   </div>
 </BaseLayout>
+
+<style>
+  .head h1 {
+    font-size: var(--text-3xl);
+    color: var(--fg-bright);
+  }
+  .meta {
+    color: var(--fg-dim);
+    font-size: var(--text-sm);
+  }
+  .num { color: var(--amber); }
+
+  .file-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    background: var(--bg-window);
+  }
+  .file-list > li:last-child :global(.row) { border-bottom: 0; }
+
+  .done { color: var(--fg-dim); margin-top: 0.25rem; }
+</style>

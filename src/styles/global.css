@@ -1,135 +1,130 @@
-/* Global variables */
+/* ===========================================================
+   Phosphor terminal aesthetic
+   :root         = "paper terminal" (light)
+   .theme-dark   = phosphor green CRT (dark)
+   The existing inline theme script adds .theme-dark when the
+   user prefers dark mode — semantics preserved.
+   =========================================================== */
+
 :root {
-  /* Colors */
-  --gray-0: #090b11;
-  --gray-50: #141925;
-  --gray-100: #283044;
-  --gray-200: #3d4663;
-  --gray-300: #505d84;
-  --gray-400: #6474a2;
-  --gray-500: #8490b5;
-  --gray-600: #a3acc8;
-  --gray-700: #c3cadb;
-  --gray-800: #e3e6ee;
-  --gray-900: #f3f4f7;
-  --gray-999-basis: 0, 0%, 100%;
-  --gray-999_40: hsla(var(--gray-999-basis), 0.4);
-  --gray-999: #ffffff;
+  /* Paper terminal palette (light / default) */
+  --bg: #f4efe1;
+  --bg-elev: #ece5d2;
+  --bg-window: #efe9d6;
+  --bg-window-bar: #e3dcc4;
+  --fg: #1a3322;
+  --fg-bright: #061308;
+  --fg-dim: #4d6a55;
+  --fg-mute: #8a9a86;
+  --rule: #b9b29a;
 
-  --accent-light: #c561f6;
-  --accent-regular: #7611a6;
-  --accent-dark: #1c0056;
-  --accent-overlay: hsla(280, 89%, 67%, 0.33);
-  --accent-subtle-overlay: var(--accent-overlay);
-  --accent-text-over: var(--gray-999);
+  --phosphor: #1ea307;
+  --phosphor-soft: #138a04;
+  --phosphor-deep: #0a4d05;
+  --phosphor-glow: rgba(20, 138, 4, 0.35);
+  --phosphor-trace: rgba(20, 138, 4, 0.12);
 
-  --link-color: var(--accent-regular);
+  --amber: #b87900;
+  --cyan: #1f7e84;
+  --magenta: #b3199c;
+  --red: #c0392b;
 
-  /* Gradients */
-  --gradient-stop-1: var(--accent-light);
-  --gradient-stop-2: var(--accent-regular);
-  --gradient-stop-3: var(--accent-dark);
-  --gradient-subtle: linear-gradient(
-    150deg,
-    var(--gray-900) 19%,
-    var(--gray-999) 150%
-  );
-  --gradient-accent: linear-gradient(
-    150deg,
-    var(--gradient-stop-1),
-    var(--gradient-stop-2),
-    var(--gradient-stop-3)
-  );
-  --gradient-accent-orange: linear-gradient(
-    150deg,
-    #ca7879,
-    var(--accent-regular),
-    var(--accent-dark)
-  );
-  --gradient-stroke: linear-gradient(180deg, var(--gray-900), var(--gray-700));
+  --link: var(--phosphor-deep);
+  --selection: rgba(20, 138, 4, 0.25);
 
-  /* Shadows */
-  --shadow-sm: 0px 6px 3px rgba(9, 11, 17, 0.01),
-    0px 4px 2px rgba(9, 11, 17, 0.01), 0px 2px 2px rgba(9, 11, 17, 0.02),
-    0px 0px 1px rgba(9, 11, 17, 0.03);
-  --shadow-md: 0px 28px 11px rgba(9, 11, 17, 0.01),
-    0px 16px 10px rgba(9, 11, 17, 0.03), 0px 7px 7px rgba(9, 11, 17, 0.05),
-    0px 2px 4px rgba(9, 11, 17, 0.06);
-  --shadow-lg: 0px 62px 25px rgba(9, 11, 17, 0.01),
-    0px 35px 21px rgba(9, 11, 17, 0.05), 0px 16px 16px rgba(9, 11, 17, 0.1),
-    0px 4px 9px rgba(9, 11, 17, 0.12);
+  /* Map legacy template tokens onto the new palette so any
+     unconverted styles keep rendering coherently. */
+  --gray-0: var(--fg-bright);
+  --gray-50: var(--fg);
+  --gray-100: var(--fg);
+  --gray-200: var(--fg);
+  --gray-300: var(--fg-dim);
+  --gray-400: var(--fg-dim);
+  --gray-500: var(--fg-mute);
+  --gray-600: var(--fg-mute);
+  --gray-700: var(--rule);
+  --gray-800: var(--rule);
+  --gray-900: var(--bg-elev);
+  --gray-999: var(--bg);
+  --gray-999-basis: 45, 45%, 92%;
+  --gray-999_40: rgba(244, 239, 225, 0.5);
 
-  /* Text Sizes */
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-md: 1.125rem;
-  --text-lg: 1.25rem;
-  --text-xl: 1.625rem;
-  --text-2xl: 2.125rem;
-  --text-3xl: 2.625rem;
-  --text-4xl: 3.5rem;
-  --text-5xl: 4.5rem;
+  --accent-light: var(--phosphor-deep);
+  --accent-regular: var(--phosphor-soft);
+  --accent-dark: var(--phosphor);
+  --accent-overlay: var(--phosphor-trace);
+  --accent-subtle-overlay: var(--phosphor-trace);
+  --accent-text-over: var(--bg);
+  --link-color: var(--link);
 
-  /* Fonts */
-  --font-system: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  --font-body: "Public Sans", var(--font-system);
-  --font-brand: Rubik, var(--font-system);
-  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono",
-    monospace;
+  --gradient-stop-1: var(--phosphor);
+  --gradient-stop-2: var(--phosphor-soft);
+  --gradient-stop-3: var(--phosphor-deep);
+  --gradient-subtle: none;
+  --gradient-accent: none;
+  --gradient-accent-orange: none;
+  --gradient-stroke: none;
 
-  /* Transitions */
-  --theme-transition: 0.2s ease-in-out;
+  --shadow-sm: 0 0 0 1px var(--rule);
+  --shadow-md: 0 0 0 1px var(--rule);
+  --shadow-lg: 0 0 0 1px var(--rule);
+
+  /* Type scale */
+  --text-sm: 0.8125rem;
+  --text-base: 0.9375rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.625rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.5rem;
+  --text-5xl: 3.25rem;
+
+  /* Fonts: monospace everything */
+  --font-system: ui-monospace, "JetBrains Mono", "IBM Plex Mono", "SF Mono",
+    Menlo, Consolas, "DejaVu Sans Mono", monospace;
+  --font-body: var(--font-system);
+  --font-brand: var(--font-system);
+  --font-mono: var(--font-system);
+
+  --theme-transition: 0.12s linear;
 }
 
+/* Phosphor CRT — dark theme */
 :root.theme-dark {
-  --gray-0: #ffffff;
-  --gray-50: #f3f4f7;
-  --gray-100: #e3e6ee;
-  --gray-200: #c3cadb;
-  --gray-300: #a3acc8;
-  --gray-400: #8490b5;
-  --gray-500: #6474a2;
-  --gray-600: #505d84;
-  --gray-700: #3d4663;
-  --gray-800: #283044;
-  --gray-900: #141925;
-  --gray-999-basis: 225, 31%, 5%;
-  --gray-999: #090b11;
+  --bg: #07090a;
+  --bg-elev: #0c1110;
+  --bg-window: #0a0f0e;
+  --bg-window-bar: #11181a;
+  --fg: #c8f7c5;
+  --fg-bright: #e8ffe6;
+  --fg-dim: #6f9b78;
+  --fg-mute: #3e5a47;
+  --rule: #1f3025;
 
-  --accent-light: #1c0056;
-  --accent-regular: #7611a6;
-  --accent-dark: #c561f6;
-  --accent-overlay: hsla(280, 89%, 67%, 0.33);
-  --accent-subtle-overlay: hsla(281, 81%, 36%, 0.33);
-  --accent-text-over: var(--gray-0);
+  --phosphor: #39ff14;
+  --phosphor-soft: #4af626;
+  --phosphor-deep: #1ea307;
+  --phosphor-glow: rgba(74, 246, 38, 0.45);
+  --phosphor-trace: rgba(74, 246, 38, 0.12);
 
-  --link-color: var(--accent-dark);
+  --amber: #ffb000;
+  --cyan: #5ce1e6;
+  --magenta: #ff5edb;
+  --red: #ff5c5c;
 
-  --gradient-stop-1: #4c11c6;
-  --gradient-subtle: linear-gradient(
-    150deg,
-    var(--gray-900) 19%,
-    var(--gray-999) 81%
-  );
-  --gradient-accent-orange: linear-gradient(
-    150deg,
-    #ca7879,
-    var(--accent-regular),
-    var(--accent-light)
-  );
-  --gradient-stroke: linear-gradient(180deg, var(--gray-600), var(--gray-800));
+  --link: var(--phosphor-soft);
+  --selection: rgba(74, 246, 38, 0.3);
 
-  --shadow-sm: 0px 6px 3px rgba(255, 255, 255, 0.01),
-    0px 4px 2px rgba(255, 255, 255, 0.01), 0px 2px 2px rgba(255, 255, 255, 0.02),
-    0px 0px 1px rgba(255, 255, 255, 0.03);
-  --shadow-md: 0px 28px 11px rgba(255, 255, 255, 0.01),
-    0px 16px 10px rgba(255, 255, 255, 0.03),
-    0px 7px 7px rgba(255, 255, 255, 0.05), 0px 2px 4px rgba(255, 255, 255, 0.06);
-  --shadow-lg: 0px 62px 25px rgba(255, 255, 255, 0.01),
-    0px 35px 21px rgba(255, 255, 255, 0.05),
-    0px 16px 16px rgba(255, 255, 255, 0.1),
-    0px 4px 9px rgba(255, 255, 255, 0.12);
+  --gray-999-basis: 0, 0%, 0%;
+  --gray-999_40: rgba(7, 9, 10, 0.4);
+
+  --accent-light: var(--phosphor);
+  --accent-regular: var(--phosphor-soft);
+  --accent-dark: var(--phosphor-deep);
+
+  --shadow-md: 0 0 0 1px var(--rule), 0 0 14px rgba(74, 246, 38, 0.05);
+  --shadow-lg: 0 0 0 1px var(--rule), 0 0 28px rgba(74, 246, 38, 0.08);
 }
 
 html,
@@ -139,11 +134,18 @@ body {
 }
 
 body {
-  background-color: var(--gray-999);
-  color: var(--gray-200);
+  background-color: var(--bg);
+  color: var(--fg);
   font-family: var(--font-body);
+  font-size: var(--text-base);
   -webkit-font-smoothing: antialiased;
-  line-height: 1.5;
+  line-height: 1.55;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--selection);
+  color: var(--fg-bright);
 }
 
 *,
@@ -158,8 +160,28 @@ img {
   height: auto;
 }
 
+:root.theme-dark img {
+  filter: contrast(1.05) saturate(0.9);
+}
+
 a {
-  color: var(--link-color);
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--phosphor-trace);
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color var(--theme-transition),
+    color var(--theme-transition);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--fg-bright);
+  text-decoration-color: var(--phosphor-soft);
+}
+
+:focus-visible {
+  outline: 1px dashed var(--phosphor-soft);
+  outline-offset: 3px;
 }
 
 h1,
@@ -167,34 +189,32 @@ h2,
 h3,
 h4,
 h5 {
-  line-height: 1.1;
+  line-height: 1.15;
   font-family: var(--font-brand);
   font-weight: 600;
-  color: var(--gray-100);
+  color: var(--fg-bright);
+  letter-spacing: -0.005em;
 }
 
-h1 {
-  font-size: var(--text-5xl);
+h1 { font-size: var(--text-4xl); }
+h2 { font-size: var(--text-3xl); }
+h3 { font-size: var(--text-2xl); }
+h4 { font-size: var(--text-xl); }
+h5 { font-size: var(--text-lg); }
+
+p { color: var(--fg); }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--rule);
+  margin: 2rem 0;
 }
 
-h2 {
-  font-size: var(--text-4xl);
-}
-
-h3 {
-  font-size: var(--text-3xl);
-}
-
-h4 {
-  font-size: var(--text-2xl);
-}
-
-h5 {
-  font-size: var(--text-xl);
+code, kbd, pre, samp {
+  font-family: var(--font-mono);
 }
 
 /* Utilities */
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -209,64 +229,173 @@ h5 {
 
 .wrapper {
   width: 100%;
-  max-width: 83rem;
+  max-width: 78rem;
   margin-inline: auto;
-  padding-inline: 1.5rem;
+  padding-inline: 1.25rem;
 }
 
-.stack {
-  display: flex;
-  flex-direction: column;
-}
-
-.gap-2 {
-  gap: 0.5rem;
-}
-.gap-4 {
-  gap: 1rem;
-}
-.gap-8 {
-  gap: 2rem;
-}
-.gap-10 {
-  gap: 2.5rem;
-}
-.gap-15 {
-  gap: 3.75rem;
-}
-.gap-20 {
-  gap: 5rem;
-}
-.gap-30 {
-  gap: 7.5rem;
-}
-.gap-48 {
-  gap: 12rem;
-}
+.stack { display: flex; flex-direction: column; }
+.gap-2 { gap: 0.5rem; }
+.gap-4 { gap: 1rem; }
+.gap-8 { gap: 2rem; }
+.gap-10 { gap: 2.5rem; }
+.gap-15 { gap: 3.75rem; }
+.gap-20 { gap: 5rem; }
+.gap-30 { gap: 7.5rem; }
+.gap-48 { gap: 12rem; }
 
 @media (min-width: 50em) {
-  .lg\:gap-2 {
-    gap: 0.5rem;
-  }
-  .lg\:gap-4 {
-    gap: 1rem;
-  }
-  .lg\:gap-8 {
-    gap: 2rem;
-  }
-  .lg\:gap-10 {
-    gap: 2.5rem;
-  }
-  .lg\:gap-15 {
-    gap: 3.75rem;
-  }
-  .lg\:gap-20 {
-    gap: 5rem;
-  }
-  .lg\:gap-30 {
-    gap: 7.5rem;
-  }
-  .lg\:gap-48 {
-    gap: 12rem;
-  }
+  .lg\:gap-2 { gap: 0.5rem; }
+  .lg\:gap-4 { gap: 1rem; }
+  .lg\:gap-8 { gap: 2rem; }
+  .lg\:gap-10 { gap: 2.5rem; }
+  .lg\:gap-15 { gap: 3.75rem; }
+  .lg\:gap-20 { gap: 5rem; }
+  .lg\:gap-30 { gap: 7.5rem; }
+  .lg\:gap-48 { gap: 12rem; }
+}
+
+/* ============ Terminal primitives ============ */
+
+/* Reusable shell prompt: user@host:~/path $ command */
+.term-prompt {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--fg-dim);
+  letter-spacing: 0;
+  white-space: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.term-prompt::-webkit-scrollbar { display: none; }
+
+.term-prompt .u { color: var(--phosphor-soft); font-weight: 600; }
+.term-prompt .h { color: var(--cyan); }
+.term-prompt .p { color: var(--amber); }
+.term-prompt .s { color: var(--fg-dim); }
+.term-prompt .c { color: var(--fg-bright); }
+
+/* Blinking block cursor */
+.cursor {
+  display: inline-block;
+  width: 0.55ch;
+  height: 1em;
+  margin-left: 0.25ch;
+  vertical-align: -0.15em;
+  background-color: var(--phosphor-soft);
+  animation: cursor-blink 1.05s steps(2, start) infinite;
+}
+
+:root.theme-dark .cursor {
+  box-shadow: 0 0 6px var(--phosphor-glow);
+}
+
+@keyframes cursor-blink {
+  to { background-color: transparent; box-shadow: none; }
+}
+
+/* Window chrome (mac traffic lights + title bar) */
+.win {
+  display: block;
+  border: 1px solid var(--rule);
+  background: var(--bg-window);
+  position: relative;
+}
+
+.win-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--bg-window-bar);
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--fg-dim);
+}
+
+.win-dots {
+  display: inline-flex;
+  gap: 0.4rem;
+  margin-right: 0.5rem;
+}
+
+.win-dots i {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 999rem;
+  background: var(--fg-mute);
+  opacity: 0.9;
+}
+.win-dots i:nth-child(1) { background: #ff5f56; }
+.win-dots i:nth-child(2) { background: #ffbd2e; }
+.win-dots i:nth-child(3) { background: #27c93f; }
+
+.win-title { color: var(--fg); }
+.win-title .at { color: var(--phosphor-soft); }
+
+.win-body { padding: 1.25rem; }
+
+/* File listing (ls-style rows) */
+.file-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: var(--bg-window);
+}
+.file-list > li { list-style: none; }
+
+/* ASCII rule */
+.ascii-rule {
+  font-family: var(--font-mono);
+  color: var(--fg-mute);
+  white-space: nowrap;
+  overflow: hidden;
+  user-select: none;
+  line-height: 1;
+}
+
+/* Scanlines + flicker — dark theme only */
+.crt-overlay { display: none; }
+
+:root.theme-dark .crt-overlay {
+  display: block;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  mix-blend-mode: overlay;
+  opacity: 0.55;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.18) 3px,
+    rgba(0, 0, 0, 0) 4px
+  );
+}
+
+:root.theme-dark .crt-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 55%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root.theme-dark body { animation: crt-flicker 7s infinite steps(8, end); }
+}
+
+@keyframes crt-flicker {
+  0%, 96%, 100% { opacity: 1; }
+  97% { opacity: 0.97; }
+  98% { opacity: 1; }
+  99% { opacity: 0.95; }
 }

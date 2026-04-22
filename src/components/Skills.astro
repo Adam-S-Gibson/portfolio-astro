@@ -1,112 +1,82 @@
 ---
-import Icon from "./Icon.astro";
+const items = [
+  {
+    cmd: "stack --full",
+    title: "Full-stack by default",
+    body: "Happy moving between a React SDK, a backend service, a Terraform module, or a data pipeline in the same week. To me, it's all about the big picture, not a single piece of the puzzle.",
+  },
+  {
+    cmd: "trace --root-cause",
+    title: "Drawn to root causes",
+    body: "The bugs I enjoy most are the ones that have stumped other engineers, races, feedback loops, silent data issues. I'd rather spend a week on the real cause than ship a workaround.",
+  },
+  {
+    cmd: "perf --measure",
+    title: "Pragmatic about performance",
+    body: "Latency, cost, and cluster headroom are numbers I actually watch. Most of my wins come from measuring before optimising and knowing when 'fast enough' is the right answer.",
+  },
+];
 ---
 
-<section class="box skills">
-  <div class="skill">
-    <header class="skill-head">
-      <Icon icon="code" color="var(--accent-regular)" size="2rem" gradient />
-      <h2>Full-stack by default</h2>
-    </header>
-    <p>
-      Happy moving between a React SDK, a backend service, a Terraform module,
-      or a data pipeline in the same week. To me, it's all about the big picture, not a single piece of the puzzle.
-    </p>
-  </div>
-  <div class="skill">
-    <header class="skill-head">
-      <Icon
-        icon="strategy"
-        color="var(--accent-regular)"
-        size="2rem"
-        gradient
-      />
-      <h2>Drawn to root causes</h2>
-    </header>
-    <p>
-      The bugs I enjoy most are the ones that have stumped other engineers,
-      races, feedback loops, silent data issues. I'd rather spend a week on
-      the real cause than ship a workaround.
-    </p>
-  </div>
-  <div class="skill">
-    <header class="skill-head">
-      <Icon
-        icon="rocket-launch"
-        color="var(--accent-regular)"
-        size="2rem"
-        gradient
-      />
-      <h2>Pragmatic about performance</h2>
-    </header>
-    <p>
-      Latency, cost, and cluster headroom are numbers I actually watch. Most
-      of my wins come from measuring before optimising and knowing when
-      "fast enough" is the right answer.
-    </p>
+<section class="win skills">
+  <header class="win-bar">
+    <span class="win-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="win-title"><span class="at">~/skills</span> &mdash; how I work</span>
+  </header>
+  <div class="grid">
+    {
+      items.map((s) => (
+        <article class="card">
+          <p class="cmd"><span class="prompt">$</span> {s.cmd}</p>
+          <h2>{s.title}</h2>
+          <p class="body">{s.body}</p>
+        </article>
+      ))
+    }
   </div>
 </section>
 
 <style>
-  .box {
-    border: 1px solid var(--gray-800);
-    border-radius: 0.75rem;
-    padding: 1.5rem;
-    background-color: var(--gray-999_40);
-    box-shadow: var(--shadow-sm);
+  .skills { width: 100%; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 
-  .skills {
+  .card {
+    padding: 1.25rem;
+    border-bottom: 1px dashed var(--rule);
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 0.5rem;
   }
+  .card:last-child { border-bottom: 0; }
 
-  .skill {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+  .cmd {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--fg-dim);
   }
+  .prompt { color: var(--phosphor-soft); }
 
-  .skill-head {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .skills h2 {
+  .card h2 {
     font-size: var(--text-lg);
+    color: var(--fg-bright);
     margin: 0;
   }
 
-  .skills p {
-    color: var(--gray-400);
-  }
+  .body { color: var(--fg-dim); font-size: var(--text-sm); }
 
   @media (min-width: 50em) {
-    .box {
-      border-radius: 1.5rem;
-      padding: 2.5rem;
-    }
-
-    .skills {
-      display: grid;
+    .grid {
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto auto;
-      column-gap: 5rem;
-      row-gap: 1.25rem;
     }
-
-    .skill {
-      display: grid;
-      grid-row: span 2;
-      grid-template-rows: subgrid;
-      gap: 1.25rem;
+    .card {
+      border-bottom: 0;
+      border-right: 1px dashed var(--rule);
     }
-
-    .skills h2 {
-      font-size: var(--text-xl);
-      align-self: center;
-    }
+    .card:last-child { border-right: 0; }
   }
 </style>
