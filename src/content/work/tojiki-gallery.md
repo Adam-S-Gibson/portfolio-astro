@@ -1,6 +1,6 @@
 ---
 title: Tojiki Gallery
-publishDate: 2026-04-29 00:00:00
+publishDate: 2026-03-29 00:00:00
 img: ../../assets/tojiki.webp
 img_alt: Screenshot of the Tojiki Gallery storefront
 description: |

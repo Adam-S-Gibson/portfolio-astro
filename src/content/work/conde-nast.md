@@ -1,6 +1,6 @@
 ---
 title: Condé Nast
-publishDate: 2026-02-21 00:00:00
+publishDate: 2026-04-21 00:00:00
 img: ../../assets/conde-nast.webp
 img_alt: Screenshot of the Wired homepage
 description: |
