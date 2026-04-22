@@ -48,7 +48,7 @@ const date = new Intl.DateTimeFormat("en-GB", {
         <span class="muted">date:</span> <span class="val">{date}</span>
         <span class="sep">·</span>
         <span class="muted">tags:</span>
-        {entry.data.tags.map((t) => <Pill>{t}</Pill>)}
+        {entry.data.tags.map((t: string) => <Pill>{t}</Pill>)}
       </p>
 
       <p class="description">{entry.data.description}</p>
