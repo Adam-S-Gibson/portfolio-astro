@@ -21,8 +21,6 @@ Some of the most rewarding work came from chasing down bugs that had stumped oth
 
 On the data and infrastructure side, I authored materialised views that brought query times down from hours to seconds, built dashboards tracking core web vitals across the experimentation surface, and worked through a MongoDB scaling incident that had started to impact ingress times. I also looked after a broad slice of our Terraform estate, cluster sizing, secret provisioning, version upgrades, and migrated our secrets pipeline out of GitHub into AWS, tuning resources along the way to cut cloud spend.
 
-Outside of feature work, I had the chance to experiment with AI-assisted tooling inside the platform and placed second in the company hackathon with a project exploring how generative models could help organise Condé Nast's enormous editorial image library.
-
-<!-- cspell:ignore initialisation materialised hackathon organise -->
+Outside of feature work, I had the chance to experiment with AI-assisted tooling inside the platform and placed first in the company hackathon with a project exploring how generative models could help organise Condé Nast's enormous editorial image library.
 
 The role stretched me across TypeScript, SQL, Terraform, MongoDB, and AWS in a way few jobs would, and taught me that the most valuable engineering work often hides inside the problems no one else wants to pick up.

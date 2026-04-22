@@ -2,7 +2,7 @@
 title: Pokédex
 publishDate: 2022-03-02 00:00:00
 link: https://adam-s-gibson.github.io/pokemon-stat-dex/
-img: ../../assets/pokedex.webp
+img: ../../assets/pokedex.avif
 img_alt: Bulbasaur with its stats and typing next to it
 github: https://github.com/Adam-S-Gibson/pokemon-stat-dex
 description: |
@@ -26,4 +26,3 @@ Additionally, the application architecture was thoughtfully designed to ensure s
 Throughout the development process, attention was paid to best coding practices, including comprehensive error handling, consistent code formatting, and thoughtful naming conventions. This not only enhanced the code quality but also ensured that the application was robust and user-friendly.
 
 Developing this Pokémon application was a substantial learning experience, offering numerous opportunities for growth in modern web development technologies and practices. The project stands as a testament to the power of combining a well-thought-out design with efficient data handling and a user-centric approach.
-
